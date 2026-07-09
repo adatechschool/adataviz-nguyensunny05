@@ -28,8 +28,3 @@
 
 // attendre (1000)
 // .then(valeur => console.log(valeur));
-
-
-fetch("https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/liste-des-ehpad/records?limit=20")
-.then((data) => data.json())
-.then((res) => console.log(res)).catch((error) => console.error( errror))

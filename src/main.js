@@ -1,60 +1,99 @@
-import './style.css'
-import javascriptLogo from './assets/javascript.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import { setupCounter } from './counter.js'
+// const app = document.getElementById("app");
+// // https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/parissetransforme/records?limit=20
+// const getData = async () => {
+//   try {
+//     const data = await fetch(
+//       "https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/parissetransforme/records?limit=20",
+//     );
+//     const response = await data.json();
+//     return response.results;
+//   } catch (error) {
+//     console.error(error.message);
+//   }
+// };
 
-document.querySelector('#app').innerHTML = `
-<section id="center">
-  <div class="hero">
-    <img src="${heroImg}" class="base" width="170" height="179">
-    <img src="${javascriptLogo}" class="framework" alt="JavaScript logo"/>
-    <img src="${viteLogo}" class="vite" alt="Vite logo" />
-  </div>
-  <div>
-    <h1>Get started</h1>
-    <p>Edit <code>src/main.js</code> and save to test <code>HMR</code></p>
-  </div>
-  <button id="counter" type="button" class="counter"></button>
-</section>
+// const printData = async () => {
+//   const resultData = await getData();
+//   for (let i = 0; i < resultData.length; i++) {
+//     const article = document.createElement("article");
+//     const h1 = document.createElement("h1");
+//     h1.textContent = resultData[i].titre_descriptif;
+//     article.appendChild(h1);
+//     app.appendChild(article);
+//   }
+// };
+// printData();
 
-<div class="ticks"></div>
+// const app = document.getElementById("app");
+// // https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/parissetransforme/records?limit=20
+// const getData = async () => {
+//   try {
+//     const data = await fetch(
+//       "https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/parissetransforme/records?limit=20",
+//     );
+//     const response = await data.json();
+//     return response.results;
+//   } catch (error) {
+//     console.error(error.message);
+//   }
+// };
 
-<section id="next-steps">
-  <div id="docs">
-    <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#documentation-icon"></use></svg>
-    <h2>Documentation</h2>
-    <p>Your questions, answered</p>
-    <ul>
-      <li>
-        <a href="https://vite.dev/" target="_blank">
-          <img class="logo" src="${viteLogo}" alt="" />
-          Explore Vite
-        </a>
-      </li>
-      <li>
-        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-          <img class="button-icon" src="${javascriptLogo}" alt="">
-          Learn more
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div id="social">
-    <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#social-icon"></use></svg>
-    <h2>Connect with us</h2>
-    <p>Join the Vite community</p>
-    <ul>
-      <li><a href="https://github.com/vitejs/vite" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#github-icon"></use></svg>GitHub</a></li>
-      <li><a href="https://chat.vite.dev/" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#discord-icon"></use></svg>Discord</a></li>
-      <li><a href="https://x.com/vite_js" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#x-icon"></use></svg>X.com</a></li>
-      <li><a href="https://bsky.app/profile/vite.dev" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#bluesky-icon"></use></svg>Bluesky</a></li>
-    </ul>
-  </div>
-</section>
+// const printData = async () => {
+//   const resultData = await getData();
+//   for (let i = 0; i < resultData.length; i++) {
+//     const article = document.createElement("article");
+//     article.innerHTML = `
+//     <h1>${resultData[i].titre_descriptif}</h1>
+//     `;
+//     app.appendChild(article);
+//   }
+// };
+// printData();
+const parent = document.getElementById('parent');
 
-<div class="ticks"></div>
-<section id="spacer"></section>
-`
+const donnees = async () => {
+  try {
+    const reponse = await fetch("https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/liste-des-ehpad/records?limit=20");
+    const data = await reponse.json();
+    return data.results;
+  } catch (erreur) {
+    console.error("erreur de chargement:", erreur.message);
+  }
+};
 
-setupCounter(document.querySelector('#counter'))
+const printData = async () => {
+  const resultData = await donnees();
+  for (let i = 0; i < resultData.length; i++) {
+    const carte = document.createElement("article");
+    const img = document.createElement("img");
+    const carteBody = document.createElement("section");
+    const h5 = document.createElement("h5");
+    const p = document.createElement("p");
+    const ul = document.createElement("ul");
+    const li = document.createElement("li");
+    const li2 = document.createElement("li");
+    const li3 = document.createElement("li");
+    const button = document.createElement("button");
+    img.src = resultData[i].image.url;
+    h5.textContent = resultData[i].nom_de_l_ehpad;
+    p.textContent = resultData[i].ville;
+    li.textContent = resultData[i].adresse
+    li2.textContent = resultData[i].code_postal
+    li3.textContent = resultData[i].telephone;
+    button.textContent = "Voir la fiche →";
+    button.onclick = () => {
+      // Ouvrir une page détails pour l'EHPAD
+    }
+    carte.classList.add("card");
+    carte.appendChild(img);
+    carteBody.classList.add("card-body");
+    carteBody.appendChild(h5);
+    carteBody.appendChild(li);
+    carteBody.appendChild(li2);
+    carteBody.appendChild(li3);
+    carte.appendChild(carteBody);
+    carte.appendChild(button);
+    parent.appendChild(carte);
+  }
+};
+console.log(printData());

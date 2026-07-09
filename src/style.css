@@ -1,4 +1,4 @@
-* {
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -8,18 +8,18 @@ body {
   font-family: "Inter", sans-serif;
   height: 100vh;
   margin: 0;
-  position: relative;
+  position: relative; 
 }
 
 body::before {
   content: "";
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: url("assets/backgroundRetraite.jpg") center 35% / cover no-repeat;
-  filter: blur(8px);
+  background: url("assets/backgroundRetraite.jpg") center 35% / cover fixed;
+  filter: blur(5px);
   z-index: -1;
 }
 
@@ -127,9 +127,8 @@ h4 {
   margin-left: 50px;
 }
 
-.card {
+/* .parent {
   font-family: "Inter", sans-serif;
-  max-width: 380px;
   background: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -138,37 +137,68 @@ h4 {
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   display: flex;
-  flex-direction: column;
+  flex-direction:row;
+  flex-wrap: wrap;
+  justify-content: space-between;
   margin-top: 2.5rem;
+  gap: 10px;
+} */
+
+.parent {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center; /* Centre les cartes horizontalement */
+  gap: 30px;              /* Espace entre chaque carte */
+  max-width: 1200px;      /* Largeur max de la zone des cartes */
+  /* margin: 40px auto;      Centrage automatique du bloc dans la page */
+  padding: 0 20px;
+  
 }
 
-.card-img {
+.card {
+  font-family: "Inter", sans-serif;
+  background: rgba(255, 255, 255, 0.55); /* Le fond blanc transparent va ici */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  width: 100%;
+  max-width: 320px;       /* Largeur maximale d'une carte */
+  display: flex;
+  flex-direction: column; /* Aligne le contenu de la carte du haut vers le bas */
+  justify-content: center;
+}
+
+.card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
 }
 
-.card-body {
+/* .card section {
   padding: 20px;
-  display: grid;
+  display: flex;
   flex-direction: column;
-  flex: 1;
-}
+  background-color: aqua;
+} */
 
-.card-title {
+.card h5 {
   font-size: 14px;
   color: #1d353d;
   font-weight: 700;
   margin-bottom: 6px;
 }
 
-.card-location {
+.card p {
   font-size: 12px;
   color: #666;
   margin-bottom: 12px;
 }
 
-.card-residence {
+.card li {
   list-style: none;
   padding: 0;
   font-size: 13px;
@@ -179,14 +209,14 @@ h4 {
   margin-bottom: 16px;
 }
 
-.card-tags {
+/* .card-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   margin-bottom: 16px;
-}
+} */
 
-.tag {
+/* .tag {
   font-size: 11px;
   padding: 4px 8px;
   border-radius: 4px;
@@ -208,9 +238,9 @@ h4 {
 .tag-orange {
   background: #fcecd2;
   color: #a06000;
-}
+} */
 
-.card-btn {
+.card button {
   display: block;
   text-align: center;
   background: #115767;
@@ -223,26 +253,26 @@ h4 {
   transition: background 0.2s;
 }
 
-.card-btn:hover {
+.card button:hover {
   background: #0d4350;
 }
 
-.card-tags {
+/* .card-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   margin-bottom: 16px;
   list-style: none;
   padding: 0;
-}
+} */
 
-.parent {
+/* .parent {
   display: flex;
   justify-content: center ;
   gap: 5em;
-}
+} */
 
-.fiche{
+/* .fiche{
   background: #2b545bd9;
   backdrop-filter: blur(8px);
   border-radius: 50px;
@@ -252,6 +282,10 @@ h4 {
   align-items: center;
   color: white;
   text-align: center;
+} */
+
+.card-body {
+  padding: 1em;
 }
 
 .btn-plus {
@@ -263,7 +297,7 @@ h4 {
   font-weight: 700;
   text-transform: uppercase;
   cursor: pointer;
-}
+} */
 
 .voirPlus{
   display: flex;
