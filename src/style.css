@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -29,6 +29,33 @@ main {
   z-index: 1;
 }
 
+main {
+  max-width: 1200px;
+  margin: 60px auto;
+  text-align: center;
+  padding: 30px;
+  border-radius: 16px;
+}
+
+main h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 38px;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+}
+
+main p {
+  font-size: 16px;
+  color: #4a4a4a;
+}
+
+h4 {
+  font-family: "Playfair Display", serif;
+  font-size: 38px;
+  color: #1a1a1a;
+  margin-left: 50px;
+}
+
 .header-navigation {
   display: flex;
   justify-content: space-between;
@@ -47,38 +74,6 @@ main {
   font-family: "Playfair Display", serif;
   font-size: 22px;
   color: #1a1a1a;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  margin-left: 20px;
-}
-
-.nav-links :hover {
-  border-bottom: 2px solid #b87b2a;
-  font-weight: 600;
-}
-
-main {
-  max-width: 800px;
-  margin: 60px auto;
-  text-align: center;
-  padding: 30px;
-  border-radius: 16px;
-}
-
-main h1 {
-  font-family: "Playfair Display", serif;
-  font-size: 38px;
-  color: #1a1a1a;
-  margin-bottom: 12px;
-}
-
-main p {
-  font-size: 16px;
-  color: #4a4a4a;
 }
 
 .search {
@@ -120,45 +115,21 @@ main p {
   cursor: pointer;
 }
 
-h4 {
-  font-family: "Playfair Display", serif;
-  font-size: 38px;
-  color: #1a1a1a;
-  margin-left: 50px;
-}
-
-/* .parent {
-  font-family: "Inter", sans-serif;
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction:row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 2.5rem;
-  gap: 10px;
-} */
-
 .parent {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center; /* Centre les cartes horizontalement */
-  gap: 30px;              /* Espace entre chaque carte */
-  max-width: 1200px;      /* Largeur max de la zone des cartes */
-  /* margin: 40px auto;      Centrage automatique du bloc dans la page */
+  justify-content: center; 
+  gap: 30px;           
+  max-width: 1200px;     
+  margin: 40px auto;      
   padding: 0 20px;
-  
+  align-items: start;
 }
 
 .card {
   font-family: "Inter", sans-serif;
-  background: rgba(255, 255, 255, 0.55); /* Le fond blanc transparent va ici */
+  background: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 20px;
@@ -166,10 +137,12 @@ h4 {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   overflow: hidden;
   width: 100%;
-  max-width: 320px;       /* Largeur maximale d'une carte */
+  max-width: 320px;
   display: flex;
-  flex-direction: column; /* Aligne le contenu de la carte du haut vers le bas */
+  flex-direction: column;
   justify-content: center;
+  min-height: 22rem;
+  margin-top: 3rem;
 }
 
 .card img {
@@ -178,12 +151,12 @@ h4 {
   object-fit: cover;
 }
 
-/* .card section {
-  padding: 20px;
+.card-body {
+  padding: 1em;
   display: flex;
   flex-direction: column;
-  background-color: aqua;
-} */
+  flex-grow: 1;
+}
 
 .card h5 {
   font-size: 14px;
@@ -209,37 +182,6 @@ h4 {
   margin-bottom: 16px;
 }
 
-/* .card-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 16px;
-} */
-
-/* .tag {
-  font-size: 11px;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-weight: 500;
-}
-
-.tag-purple {
-  background: #ecd5fa;
-  color: #6b408a;
-}
-.tag-green {
-  background: #daf5e3;
-  color: #2d6a4f;
-}
-.tag-blue {
-  background: #def1f5;
-  color: #2a6f97;
-}
-.tag-orange {
-  background: #fcecd2;
-  color: #a06000;
-} */
-
 .card button {
   display: block;
   text-align: center;
@@ -251,41 +193,18 @@ h4 {
   font-weight: 600;
   font-size: 14px;
   transition: background 0.2s;
+  margin-top: auto;
 }
 
 .card button:hover {
   background: #0d4350;
 }
 
-/* .card-tags {
+.voirPlus {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 16px;
-  list-style: none;
-  padding: 0;
-} */
-
-/* .parent {
-  display: flex;
-  justify-content: center ;
-  gap: 5em;
-} */
-
-/* .fiche{
-  background: #2b545bd9;
-  backdrop-filter: blur(8px);
-  border-radius: 50px;
-  padding: 6px 8px 6px 24px;
-  max-width: 850px;
-  margin: 20px auto;
-  align-items: center;
-  color: white;
-  text-align: center;
-} */
-
-.card-body {
-  padding: 1em;
+  justify-content: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 .btn-plus {
@@ -297,10 +216,8 @@ h4 {
   font-weight: 700;
   text-transform: uppercase;
   cursor: pointer;
-} */
+} 
 
-.voirPlus{
-  display: flex;
-  justify-content: center;
-  margin-top: 1em;
+.hidden-info {
+  display: none !important;
 }
