@@ -91,7 +91,7 @@ const searchBtn = document.querySelector(".search button");
 
 searchBtn.addEventListener("click", () => {
   const nomRecherche = inputName.value.toLowerCase().trim();
-  const villeRecherche = inputCity.value.toLowerCase().trim();
+  const codePostalRecherche = inputCity.value.toLowerCase().trim();
   const cartes = document.querySelectorAll(".card");
 
   // boucle sur chaque cartes pour verifier si le li et le titre correspondent 
