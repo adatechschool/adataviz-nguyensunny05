@@ -94,12 +94,11 @@ searchBtn.addEventListener("click", () => {
   const codePostalRecherche = inputCity.value.toLowerCase().trim();
   const cartes = document.querySelectorAll(".card");
 
-  // boucle sur chaque cartes pour verifier si le li et le titre correspondent 
   cartes.forEach((carte) => {
     const nomEhpad = carte.querySelector("h5").textContent.toLowerCase();
     const listeElements = carte.querySelectorAll("li");
 
-    let adresseText = "";
+    let adresseText = ""; 
     if (listeElements[0]) {
       adresseText = listeElements[0].textContent.toLowerCase();
     } else {
